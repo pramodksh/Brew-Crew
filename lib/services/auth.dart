@@ -10,6 +10,7 @@ class AuthService {
     return _auth.authStateChanges().map((User user) => _userFromFirebase(user));
   }
 
+
   //UserDetail Constructor
 
   dynamic _userFromFirebase(User user) {
@@ -32,13 +33,13 @@ class AuthService {
   //Sign-in with email and password
 
   Future signUpWithEmailAndPassword(String email, String password) async {
-    UserCredential result = await _auth.createUserWithEmailAndPassword(
-        email: email, password: password);
-    User user = result.user;
-    print('sign up successful');
-    return _userFromFirebase(user);
-    try {
 
+    try {
+      UserCredential result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      User user = result.user;
+      print('sign up successful');
+      return _userFromFirebase(user);
     } catch (e) {
       print('sign up failed');
       print(e.toString());

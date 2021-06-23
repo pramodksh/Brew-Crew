@@ -12,7 +12,7 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final userStream = Provider.of<UserDetail>(context);
-    print(userStream);
+    print('User Stream : ${userStream}');
     if(userStream == null){
       return Authenticate();
     }else{

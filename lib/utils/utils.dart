@@ -3,15 +3,31 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
 InputDecoration customInputDecoration = InputDecoration(
-    filled: true,
-    fillColor: Colors.white,
-    enabledBorder: OutlineInputBorder(
+    hintStyle: TextStyle(color: Colors.white),
+    enabledBorder: UnderlineInputBorder(
         borderSide: BorderSide(color: Colors.white, width: 2.5)
     ),
-    focusedBorder: OutlineInputBorder(
+    focusedBorder: UnderlineInputBorder(
         borderSide: BorderSide(color: Colors.pink, width: 2.5)
     )
 );
+
+
+
+Widget getCustomElevatedButton({@required onPressed , String buttonText}){
+    return ElevatedButton(
+        style: ButtonStyle(
+            shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    side: BorderSide(color: Colors.white))),
+            padding: MaterialStateProperty.all(
+                EdgeInsets.symmetric(horizontal: 30,vertical: 20)),
+            backgroundColor:
+            MaterialStateProperty.all(Colors.transparent)),
+        onPressed: onPressed,
+        child: Text(buttonText,style: TextStyle(fontSize: 15),));
+}
 
 
 
