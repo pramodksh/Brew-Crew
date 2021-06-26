@@ -34,7 +34,7 @@ class _SignUpState extends State<SignUp> {
                   image: AssetImage('assets/images/background.jpg'),
                   fit: BoxFit.cover)),
         ),
-        Scaffold(
+        loading ? LoadingScreen() : Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
@@ -140,7 +140,7 @@ class _SignUpState extends State<SignUp> {
                                 loading = false;
                               });
                             } else {
-                              setState(() {
+                              if (mounted) setState(() {
                                 print('Successfully Signed up');
                               });
                               // print(result.uid);
